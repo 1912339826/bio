@@ -1,7 +1,5 @@
 <template>
-  <div id="app">
-    阿达萨达萨达
-  </div>
+  <div id="app">阿达萨达萨达</div>
 </template>
 
 <script>
@@ -9,14 +7,11 @@ export default {
   name: "App",
   components: {},
   data() {
-    return {
-    };
+    return {};
   },
-  created() {
-  },
+  created() {},
   mounted() {},
-  methods: {
-  }
+  methods: {}
 };
 </script>
 
