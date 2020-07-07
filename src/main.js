@@ -3,18 +3,16 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
+import Antd  from 'ant-design-vue';
+Vue.use(Antd);
+import 'ant-design-vue/dist/antd.css'; // or 'ant-design-vue/dist/antd.less'
 // normalize.css（css样式初始化）
 import 'normalize.css/normalize.css'
-Vue.use(ElementUI);
-// window.url = "111111111111"
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  render: h => h(App),
   router,
   components: { App },
   template: '<App/>'

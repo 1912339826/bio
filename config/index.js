@@ -16,7 +16,7 @@ module.exports = {
 
     // Paths
     assetsSubDirectory: 'static',
-    assetsPublicPath: './',
+    assetsPublicPath: '/',
     proxyTable: {},
 
     // Various Dev Server settings
@@ -45,10 +45,12 @@ module.exports = {
 
   build: {
     // Template for index.html
-    index: path.resolve(__dirname, '../dist/index.html'),
+    // 此处更换了初始dist的名字
+    index: path.resolve(__dirname, '../docs/index.html'),
 
     // Paths
-    assetsRoot: path.resolve(__dirname, '../dist'),
+     // 此处更换了初始dist的名字
+    assetsRoot: path.resolve(__dirname, '../docs'),
     assetsSubDirectory: 'static',
     assetsPublicPath: './',
 
