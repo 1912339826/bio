@@ -1,21 +1,108 @@
 <template>
   <div class="hello">
-    
+    <div :id="idName" :style="{ width: '100%', height: '100%' }"></div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
-  data () {
+  name: "HelloWorld",
+  data() {
     return {
-      
+      idName: "aaa",  
+      change: "",
+      myChart: "",
+      datas: [
+        {
+          name: "echarts",
+          value: 70,
+          index: "ss"
+        },
+        {
+          name: "XX1",
+          value: 68
+        },
+        {
+          name: "XX2",
+          value: 48
+        },
+        {
+          name: "XX3",
+          value: 40
+        }
+      ]
+    };
+  },
+  props:{
+    dataIndex:{
+      type:Number,
+      default:0
+    }
+  },
+  watch: {
+    dataIndex() {
+      this.ele();
+      this.visitor();
+      this.dispatchAction();
+    }
+  },
+  mounted() {
+    this.ele();
+    this.visitor();
+    this.dispatchAction();
+    window.onresize = () => {
+      this.ele();
+      this.visitor();
+      this.dispatchAction();
+    };
+  },
+  methods: {
+    ele() {
+      this.myChart = this.$echarts.init(
+        document.getElementById(this.idName),
+        "vintage"
+      );
+    },
+    visitor() {
+      window.onresize = this.myChart.resize;
+      let option = {
+        backgroundColor: "#ece4d8",
+        series: [
+          {
+            type: "pie",
+            radius: "70%",
+            center: ["50%", "50%"],
+            data: this.datas,
+            animation: false,
+            label: {
+              show: false
+            },
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 0
+          }
+        ]
+      };
+      // this.myChart.clear();
+      this.myChart.setOption(option);
+      // 使用箭头函数,修订this指向.
+      this.myChart.on("click", param => {
+        this.$emit('change',param.dataIndex)
+      });
+    },
+    dispatchAction() {
+      // 设置默认被选中的内容区域
+      this.myChart.dispatchAction({
+        type: "pieToggleSelect",
+        // 数据的 index，如果不指定也可以通过 name 属性根据名称指定数据
+        dataIndex: this.dataIndex
+      });
+      this.change = this.datas[this.dataIndex]["name"];
     }
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-
-</style>
+<style lang="less" scoped></style>

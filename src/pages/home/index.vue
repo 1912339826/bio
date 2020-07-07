@@ -1,14 +1,11 @@
 <template>
   <div id="home">
-    <Head/>
-    <a-button type="primary">
-      Primary
-    </a-button>
+    <Head />
   </div>
 </template>
 
 <script>
-import Head from '../../components/Head'
+import Head from "../../components/Head";
 export default {
   name: "home",
   components: {

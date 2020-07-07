@@ -3,7 +3,13 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import Antd  from 'ant-design-vue';
+import echarts from 'echarts'
+echarts.dataTool = require("echarts/extension-src/dataTool/gexf");
+
+Vue.prototype.$echarts = echarts
+Vue.prototype.$dataTool = echarts.dataTool;
+import 'echarts/theme/vintage.js'
+import Antd from 'ant-design-vue';
 Vue.use(Antd);
 import 'ant-design-vue/dist/antd.css'; // or 'ant-design-vue/dist/antd.less'
 // normalize.css（css样式初始化）
@@ -14,6 +20,8 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
-  components: { App },
+  components: {
+    App
+  },
   template: '<App/>'
 })
