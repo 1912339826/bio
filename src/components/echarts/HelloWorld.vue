@@ -9,14 +9,13 @@ export default {
   name: "HelloWorld",
   data() {
     return {
-      idName: "aaa",  
+      idName: "aaa",
       change: "",
       myChart: "",
       datas: [
         {
           name: "echarts",
           value: 70,
-          index: "ss"
         },
         {
           name: "XX1",
@@ -33,27 +32,29 @@ export default {
       ]
     };
   },
-  props:{
-    dataIndex:{
-      type:Number,
-      default:0
+  props: {
+    dataIndex: {
+      type: Number,
+      default: 0
     }
   },
   watch: {
-    dataIndex() {
+    dataIndex(news, olds) {
+      // 销毁实例，实例销毁后无法再被使用。使得之前定义的点击事件被销毁.
+      this.myChart.dispose();
       this.ele();
       this.visitor();
-      this.dispatchAction();
+      this.dispatchAction(news);
     }
   },
   mounted() {
     this.ele();
     this.visitor();
-    this.dispatchAction();
+    this.dispatchAction(this.dataIndex);
     window.onresize = () => {
       this.ele();
       this.visitor();
-      this.dispatchAction();
+      this.dispatchAction(this.dataIndex);
     };
   },
   methods: {
@@ -84,21 +85,21 @@ export default {
           }
         ]
       };
-      // this.myChart.clear();
+      this.myChart.clear();
       this.myChart.setOption(option);
       // 使用箭头函数,修订this指向.
       this.myChart.on("click", param => {
-        this.$emit('change',param.dataIndex)
+        this.$emit("change", param.dataIndex);
       });
     },
-    dispatchAction() {
+    dispatchAction(dataIndex) {
       // 设置默认被选中的内容区域
       this.myChart.dispatchAction({
         type: "pieToggleSelect",
         // 数据的 index，如果不指定也可以通过 name 属性根据名称指定数据
-        dataIndex: this.dataIndex
+        dataIndex: dataIndex
       });
-      this.change = this.datas[this.dataIndex]["name"];
+      this.change = this.datas[dataIndex]["name"];
     }
   }
 };

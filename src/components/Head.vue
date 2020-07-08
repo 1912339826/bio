@@ -2,7 +2,7 @@
   <div id="Head">
     <div class="left">
       <div class="box">
-        <hello :dataIndex="changeIndex" @change="change"/>
+        <hello :dataIndex="changeIndex" @change="change" />
       </div>
     </div>
     <div class="content">
@@ -14,13 +14,35 @@
       >{{item.name}}</div>
     </div>
     <div class="headPortrait">
-      <img src="static/images/headPortrait.jpg" alt />
+      <img :src="imgchange" alt @click="imgs" />
     </div>
+    <a-modal
+      v-model="visible"
+      title="选择"
+      @ok="handleOk"
+      cancelText="取消"
+      :destroyOnClose="true"
+      okText="确认"
+    >
+      <section style="height:auto">
+        <a-radio-group v-model="value" @change="onChange">
+          <a-radio
+            :style="radioStyle"
+            :value="item"
+            v-for="(item, index) in headPortrait.headPortrait"
+            :key="index"
+          >
+            <img :src="item.url" alt style="height:5vw" />
+          </a-radio>
+        </a-radio-group>
+      </section>
+    </a-modal>
   </div>
 </template>
 
 <script>
-import hello from "../components/HelloWorld";
+import headPortrait from "../../static/json/headPortrait.json";
+import hello from "./echarts/HelloWorld";
 export default {
   name: "Head",
   components: {
@@ -29,24 +51,62 @@ export default {
   props: {},
   data() {
     return {
+      // 此name与路由中name对应
       tab: [
         { name: "echarts" },
         { name: "XX1" },
         { name: "XX2" },
         { name: "XX3" }
       ],
-      changeIndex: 0
+      changeIndex: 0,
+      visible: false,
+      headPortrait: "",
+      value: "",
+      radioStyle: {
+        display: "block",
+        height: "6vw",
+        lineHeight: "6vw"
+      },
+      imgchange: ""
     };
   },
-  created() {},
+  created() {
+    this.headPortrait = headPortrait;
+    for (
+      let index = 0;
+      index < this.headPortrait.headPortrait.length;
+      index++
+    ) {
+      const element = this.headPortrait.headPortrait[index];
+      if (element.change) {
+        this.value = element;
+        this.imgchange = this.value.url;
+      }
+    }
+  },
   mounted() {},
   activated() {},
   update() {},
   methods: {
     change(index) {
-      this.changeIndex = index;
-
-    }
+      // 防止重复点击.
+      if (this.changeIndex != index) {
+        this.changeIndex = index;
+        if (this.$route.fullPath != this.tab[index].name) {
+          this.$router.push(`/pc/${this.tab[index].name}`);
+        }
+      }
+    },
+    imgs() {
+      this.visible = true;
+    },
+    handleOk() {
+      this.visible = false;
+      this.value.change = true;
+      this.headPortrait.headPortrait[this.value.index].change = true;
+      this.imgchange = this.value.url;
+    },
+    onChange() {}
   },
   filters: {},
   computed: {},
@@ -56,6 +116,7 @@ export default {
 
 <style lang="less" scoped>
 #Head {
+  border-bottom: 2px dotted #dba638;
   height: 7vw;
   background-color: #ece4d8;
   width: 100%;
@@ -83,7 +144,7 @@ export default {
       &:hover {
         color: #7c334f;
         cursor: pointer;
-        font-weight:900
+        font-weight: 900;
       }
     }
     .active {

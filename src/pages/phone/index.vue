@@ -1,16 +1,11 @@
 <template>
-  <div id="home">
-    <Head />
-  </div>
+  <div id="phone">手机界面</div>
 </template>
 
 <script>
-import Head from "../../components/Head";
 export default {
-  name: "home",
-  components: {
-    Head
-  },
+  name: "phone",
+  components: {},
   props: {},
   data() {
     return {};
@@ -27,6 +22,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-#home {
+#details {
 }
 </style>
