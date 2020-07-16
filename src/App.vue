@@ -41,7 +41,7 @@ export default {
 
 <style lang="less">
 // less外部文件的使用
-@import "../static/font/DotPixelFont/DottedSongtiSquareRegular.less";
+@import "./assets/font/DotPixelFont/DottedSongtiSquareRegular.less";
 #app {
   font-family: "DottedSongtiSquareRegular";
 }
