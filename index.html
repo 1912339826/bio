@@ -15,7 +15,7 @@
   <!-- 360使用Google Chrome Frame -->
   <meta name="renderer" content="webkit">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-  <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" /> 
+  <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
   <title>my</title>
   <style>
   </style>
@@ -24,6 +24,24 @@
 
 <body>
   <div id="app"></div>
+  <script>
+    // 设置html标签的字体大小即设置rem
+    (function (doc, win) {
+      var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+          var clientWidth = docEl.clientWidth;
+          // console.log(clientWidth)
+          if (!clientWidth) return;
+          docEl.style.fontSize = 50 * (clientWidth / 375) + 'px';
+          // console.log(docEl.style.fontSize)
+        };
+      if (!doc.addEventListener) return;
+      win.addEventListener(resizeEvt, recalc, false);
+      doc.addEventListener('DOMContentLoaded', recalc, false);
+      // console.log("       ♪♪\n       ♪♪\n       ♪♪♪♪♪♪♪♪\n       ♪♪    ♪♪\n       ♪♪    ♪♪\n       ♪♪    ♪♪\n       ♪♪    ♪♪\n       ♪♪\n       ♪♪\n      ♪♪♪\n ♪♪♪♪♪♪♪♪\n♪♪♪♪♪♪♪♪♪\n♪♪♪♪♪♪♪♪♪\n♪♪♪♪♪♪♪♪")
+    })(document, window);
+  </script>
 </body>
 
 </html>

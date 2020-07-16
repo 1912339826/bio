@@ -9,7 +9,7 @@
             <a-icon
               type="right"
               :rotate="props.isActive ? 90 : 0"
-              :style="{ color: '#dba638',fontSize:'0.8rem',fontWeight: 900}"
+              :style="{ color: '#dba638',fontSize:'0.08rem',fontWeight: 900}"
             />
           </template>
           <a-collapse-panel key="1" header="series：" :style="customStyle">
@@ -18,7 +18,7 @@
                 <a-icon
                   type="right"
                   :rotate="props.isActive ? 90 : 0"
-                  :style="{ color: '#dba638',fontSize:'0.8rem',fontWeight: 900}"
+                  :style="{ color: '#dba638',fontSize:'0.08rem',fontWeight: 900}"
                 />
               </template>
               <a-collapse-panel key="1" header="lineStyle：" :style="customStyle">
@@ -27,7 +27,7 @@
                     <a-icon
                       type="right"
                       :rotate="props.isActive ? 90 : 0"
-                      :style="{ color: '#dba638',fontSize:'0.8rem',fontWeight: 900}"
+                      :style="{ color: '#dba638',fontSize:'0.08rem',fontWeight: 900}"
                     />
                   </template>
                   <a-collapse-panel key="1" header="normal：" :style="customStyle">
@@ -36,7 +36,7 @@
                         <a-icon
                           type="right"
                           :rotate="props.isActive ? 90 : 0"
-                          :style="{ color: '#dba638',fontSize:'0.8rem',fontWeight: 900}"
+                          :style="{ color: '#dba638',fontSize:'0.08rem',fontWeight: 900}"
                         />
                       </template>
                       <a-collapse-panel key="1" header="color：" :style="customStyle">
@@ -45,7 +45,7 @@
                             <a-icon
                               type="right"
                               :rotate="props.isActive ? 90 : 0"
-                              :style="{ color: '#dba638',fontSize:'0.8rem',fontWeight: 900}"
+                              :style="{ color: '#dba638',fontSize:'0.08rem',fontWeight: 900}"
                             />
                           </template>
                           <span>
@@ -68,13 +68,7 @@
                                 @change="lineStyle_begin_color($event)"
                                 title="开始"
                               />
-                              <img
-                                src="static/images/exchange.png"
-                                alt
-                                class="exchange"
-                                title="交换颜色"
-                                @click="exchange_lineStyle_color"
-                              />
+                              <a-icon type="retweet" @click="exchange_lineStyle_color"  title="交换颜色" style="color:#dba638;font-size:0.2rem;height: 3vw;"  class="exchange"/>
                               <label for="lineStyle_end_color" title="结束">100%：</label>
                               <input
                                 type="color"
@@ -97,8 +91,10 @@
         </a-collapse>
       </section>
 
-      <section style="height:3vw;display: flex;align-items: center;">
+      <section style="height:3vw;display: flex;align-items: center;justify-content: space-around;">
         <a-button type="link" @click="confirm" title="点击使得设置生效">确认</a-button>
+        <div style="margin-right:1vw"></div>
+        <a-button type="link" @click="exportfun" title="点击使得设置导出" >导出配置</a-button>
       </section>
     </div>
   </div>
@@ -277,6 +273,9 @@ export default {
           }
         ]
       };
+    },
+    exportfun(){
+
     }
   },
   filters: {}
@@ -287,7 +286,7 @@ export default {
 #LineChart {
   height: 100%;
   display: flex;
-
+  
   width: 100%;
   .content_right {
     width: 50%;
@@ -295,6 +294,8 @@ export default {
     background-color: #fff6e9;
     padding: 1vw;
     .exchange {
+      margin-left: 0.5vw;
+      margin-right: 0.5vw;
       height: 3vw;
       &:hover {
         cursor: pointer;

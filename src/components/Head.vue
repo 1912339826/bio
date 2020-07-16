@@ -128,14 +128,14 @@ export default {
     text-align: center;
     width: 10%;
     font-weight: 900;
-    font-size: 1.5rem;
+    font-size: 0.5rem;
     .box {
       border-right: 2px dotted #dba638;
       width: 100%;
     }
   }
   .content {
-    font-size: 1.2rem;
+    font-size: 0.15rem;
     display: flex;
     align-items: center;
     justify-content: space-around;

@@ -2,11 +2,11 @@
   <div id="echarts">
     <div class="children LineChart">
       <nav>
-        <img src="static/images/chevron.png" alt />
+        <a-icon type="right" style="color:#dba638;fontSize:0.15rem" />
         <span>折线图</span>
       </nav>
       <section>
-        <componentsLineChart />
+        <!-- <componentsLineChart /> -->
       </section>
     </div>
     <div class="children">
@@ -47,7 +47,7 @@ export default {
     margin-bottom: 1vw;
     border-bottom: 2px solid #bdb6ad;
     nav {
-      font-size: 1.3rem;
+      font-size: 0.15rem;
       display: flex;
       align-items: center;
       img {
