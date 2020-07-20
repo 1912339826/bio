@@ -9,30 +9,70 @@
         <!-- <componentsLineChart /> -->
       </section>
     </div>
-    <div class="children">
-    </div>
+    <div class="children">111</div>
   </div>
 </template>
 
 <script>
-import componentsLineChart from "../../../components/echarts/LineChart";
-import shiyan from '../../../components/shiyan'
+// import componentsLineChart from "../../../components/echarts/LineChart";
 export default {
   name: "echarts",
   components: {
-    componentsLineChart,
-    shiyan
+    // componentsLineChart   
   },
   props: {},
   data() {
-    return {};
+    return {
+      set: [
+      { id: "1001", name: "dog", age: "10" },
+      { id: "1003", name: "big", age: "12" },
+      { id: "1002", name: "cat", age: "11" }
+    ]
+    };
   },
   beforeUpdate() {},
   created() {},
   mounted() {},
   activated() {},
   update() {},
-  methods: {},
+  methods: {
+    // 下载
+    dow(data, filename) {
+      console.log(data)
+      if (!data) {
+        alert("data is null");
+        return;
+      }
+      if (!filename) filename = "json.json";
+      if (typeof data === "object") {
+        data = JSON.stringify(data, undefined, 4);
+      }
+      var blob = new Blob([data], { type: "text/json" });
+      var e = document.createEvent("MouseEvents");
+      var a = document.createElement("a");
+      a.download = filename;
+      a.href = window.URL.createObjectURL(blob);
+      a.dataset.downloadurl = ["text/json", a.download, a.href].join(":");
+      e.initMouseEvent(
+        "click",
+        true,
+        false,
+        window,
+        0,
+        0,
+        0,
+        0,
+        0,
+        false,
+        false,
+        false,
+        false,
+        0,
+        null
+      );
+      a.dispatchEvent(e);
+    }
+  },
   filters: {},
   computed: {},
   watch: {}
@@ -47,6 +87,7 @@ export default {
     margin-bottom: 1vw;
     border-bottom: 2px solid #bdb6ad;
     nav {
+      height: 3vw;
       font-size: 0.15rem;
       display: flex;
       align-items: center;

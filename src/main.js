@@ -3,9 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+// echarts设置(暂时删除)
 import echarts from 'echarts'
 echarts.dataTool = require("echarts/extension-src/dataTool/gexf");
-
 Vue.prototype.$echarts = echarts
 Vue.prototype.$dataTool = echarts.dataTool;
 import 'echarts/theme/vintage.js'

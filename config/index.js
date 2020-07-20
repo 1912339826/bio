@@ -11,6 +11,9 @@ try {
 } catch (e) {
   localhost = 'localhost';
 }
+
+import aa from '../docs/JSON/aa.json'
+console.log(aa)
 module.exports = {
   dev: {
 

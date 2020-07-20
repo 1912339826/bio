@@ -14,20 +14,20 @@ export default {
       myChart: "",
       datas: [
         {
-          name: "echarts",
-          value: 70,
-        },
-        {
           name: "XX1",
-          value: 68
+          value: 77,
         },
         {
           name: "XX2",
-          value: 48
+          value: 78
         },
         {
           name: "XX3",
-          value: 40
+          value: 79
+        },
+        {
+          name: "XX4",
+          value: 80
         }
       ]
     };
