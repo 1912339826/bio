@@ -1,12 +1,13 @@
 <template>
   <div id="app">
-    <router-view v-if="ispc&&$route.meta.ispc"></router-view>
-    <router-view v-if="!ispc&&!$route.meta.ispc"></router-view>
+    <!-- <router-view v-if="ispc&&$route.meta.ispc"></router-view> -->
+    <!-- <router-view v-if="!ispc&&!$route.meta.ispc"></router-view> -->
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-export default {
+export default {  
   name: "App",
   components: {},
   data() {
@@ -15,7 +16,7 @@ export default {
     };
   },
   created() {
-    this.Mysetback();
+    // this.Mysetback();
   },
   mounted() {},
   methods: {

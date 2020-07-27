@@ -12,11 +12,8 @@ try {
   localhost = 'localhost';
 }
 
-import aa from '../docs/JSON/aa.json'
-console.log(aa)
 module.exports = {
   dev: {
-
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',

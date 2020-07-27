@@ -1,22 +1,22 @@
 <template>
   <div id="XX1">
     <div class="left">
-      <a-input-search style="margin-bottom: 8px" placeholder="Search" @change="onChange" />
+      <a-input-search style="margin-bottom: 8px" placeholder="Search" @search="onChange" />
+
       <a-directory-tree
         multiple
         default-expand-all
         @select="onSelect"
-        @expand="onExpand"
         :default-selected-keys="['0-0-0-0']"
         :show-line="showLine"
         :show-icon="showIcon"
         :tree-data="treeData"
         :selectedKeys="selectedKeys"
         :expanded-keys="expandedKeys"
-      :auto-expand-parent="autoExpandParent"
+        :auto-expand-parent="autoExpandParent"
       ></a-directory-tree>
     </div>
-    <div class="right"></div>
+    <div class="right">1111</div>
   </div>
 </template>
 
@@ -72,42 +72,44 @@ export default {
           key: "0-2"
         }
       ],
-      selectedKeys:[],
-      expandedKeys:["0-1"],
-      autoExpandParent:true
+      selectedKeys: [],
+      expandedKeys: ["0-1"],
+      autoExpandParent: true
     };
   },
-  created() {
-  },
+  created() {},
   mounted() {},
   activated() {},
   update() {},
   methods: {
     // 选中...
     onSelect(keys, event) {
-      console.log("Trigger Select", keys, event);
+      // 点击的选中效果
+      this.selectedKeys = keys;
     },
-    // 收起展开时...
-    onExpand(keys, event) {
-      // console.log("Trigger Expand",keys, event);
-    },
+    // 点击搜索按钮,进行搜索.
     onChange(e) {
+      // 搜索的选中效果
       let arr = [];
-      arr.push(e.target.value)
+      arr.push(e);
       this.selectedKeys = arr;
     }
   },
   filters: {},
   computed: {},
-  watch: {}
+  watch: {
+    selectedKeys(news,olds){
+      console.log(news[0])
+    }
+  }
 };
 </script>
 
 <style lang="less" scoped>
 #XX1 {
   width: 100%;
-  background-color: #ece4d8;
-
+  background-color: #ffffff;
+  display: flex;
   /deep/.ant-tree.ant-tree-directory
     > li.ant-tree-treenode-selected
     > span.ant-tree-node-content-wrapper::before {
@@ -120,7 +122,7 @@ export default {
     background-color: #7c334f;
   }
   /deep/.ant-tree.ant-tree-show-line li span.ant-tree-switcher {
-    background-color: #ece4d8;
+    background-color: #ffffff;
   }
   /deep/.ant-tree.ant-tree-directory
     .ant-tree-child-tree
@@ -130,7 +132,7 @@ export default {
   }
   .left {
     width: 20vw;
-    background-color: #ece4d8;
+    background-color: #ffffff;
     padding: 2vw;
     border: 2px dotted #dba638;
   }
