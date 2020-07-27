@@ -44,7 +44,10 @@ export default {
       if (this.changeIndex != index) {
         this.changeIndex = index;
         if (this.$route.fullPath != this.tab[index].name) {
-          this.$router.push(`/pc/${this.tab[index].name}`);
+          this.$router.push({
+            path: `/pc/${this.tab[index].name}`,
+            query: { id: 1 }
+          });
         }
       }
     }
@@ -57,7 +60,7 @@ export default {
 
 <style lang="less" scoped>
 #Head {
-  background-color: #ece4d8;
+  background-color: #ffffff;
   width: 100%;
   .top {
     display: flex;

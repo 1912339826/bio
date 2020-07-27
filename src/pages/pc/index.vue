@@ -2,11 +2,11 @@
   <div id="home">
     <Head />
     <div class="box">
-      <!-- <section style="background-color: #ece4d8;">
+      <!-- <section style="background-color: #fff;">
         <Aside />
 
       </section>-->
-      <section style="width:100vw;background-color: #ece4d8; margin-top: 2w ;">
+      <section style="width:100vw;background-color: #fff; margin-top: 2w ;">
         <keep-alive>
           <router-view></router-view>
         </keep-alive>

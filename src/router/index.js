@@ -7,6 +7,7 @@ import XX2 from '../pages/pc/XX2/index.vue'
 import XX3 from '../pages/pc/XX3/index.vue'
 import XX4 from '../pages/pc/XX4/index.vue'
 import phone from '../pages/phone/index.vue'
+
 Vue.use(Router)
 
 export default new Router({
@@ -19,6 +20,7 @@ export default new Router({
       meta: {
         ispc: true
       },
+      redirect: '/pc/XX1',
       children: [
         // {
         //   path: 'echarts',
@@ -29,12 +31,14 @@ export default new Router({
         // }, 
         {
           path: 'XX1',
+          name:"XX1",
           component: XX1,
           meta: {
             ispc: true
           }
         }, {
           path: 'XX2',
+          name:"XX2",
           component: XX2,
           meta: {
             ispc: true
@@ -42,6 +46,7 @@ export default new Router({
         },
         {
           path: 'XX3',
+          name:"XX3",
           component: XX3,
           meta: {
             ispc: true
@@ -49,13 +54,14 @@ export default new Router({
         },
         {
           path: 'XX4',
+          name:"XX4",
           component: XX4,
           meta: {
             ispc: true
           }
         }
       ],
-      redirect: '/pc/XX1',
+     
     },
     // 手机端页面 ispc值为false
     {

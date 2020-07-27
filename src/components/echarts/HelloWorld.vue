@@ -67,7 +67,7 @@ export default {
     visitor() {
       window.onresize = this.myChart.resize;
       let option = {
-        backgroundColor: "#ece4d8",
+        backgroundColor: "#ffffff",
         series: [
           {
             type: "pie",
