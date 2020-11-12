@@ -3,19 +3,14 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-// echarts设置(暂时删除)
-import echarts from 'echarts'
-echarts.dataTool = require("echarts/extension-src/dataTool/gexf");
-Vue.prototype.$echarts = echarts
-Vue.prototype.$dataTool = echarts.dataTool;
-import 'echarts/theme/vintage.js'
-import Antd from 'ant-design-vue';
-Vue.use(Antd);
-import 'ant-design-vue/dist/antd.css'; // or 'ant-design-vue/dist/antd.less'
 // normalize.css（css样式初始化）
 import 'normalize.css/normalize.css'
+import TXT from "./assets/js/TXT.js"
+Vue.prototype.$txt = TXT;
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 Vue.config.productionTip = false
-
+Vue.use(ElementUI);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

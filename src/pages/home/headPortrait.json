@@ -1,0 +1,14 @@
+{
+    "headPortrait": {
+        "name": "headPortrait",
+        "url": "static/images/headPortrait.jpg",
+        "change": true,
+        "index": 0
+    },
+    "snipaste": {
+        "name": "snipaste",
+        "url": "static/images/snipaste.png",
+        "change": false,
+        "index": 1
+    }
+}

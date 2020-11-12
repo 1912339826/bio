@@ -1,49 +1,25 @@
 <template>
   <div id="app">
-    <!-- <router-view v-if="ispc&&$route.meta.ispc"></router-view> -->
-    <!-- <router-view v-if="!ispc&&!$route.meta.ispc"></router-view> -->
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-export default {  
+export default {
   name: "App",
   components: {},
   data() {
-    return {
-      ispc: true
-    };
+    return {};
   },
-  created() {
-    // this.Mysetback();
-  },
+  created() {},
   mounted() {},
-  methods: {
-    Mysetback() {
-      var u = navigator.userAgent;
-      //Android终端
-      var isAndroid = u.indexOf("Android") > -1 || u.indexOf("Adr") > -1;
-      //iOS终端
-      var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
-      if (isAndroid || isiOS) {
-        //如果为Android
-        //如果为iOS
-        this.ispc = false;
-        this.$router.push("/phone");
-      } else {
-        // 如果为PC端执行
-        this.ispc = true;
-        this.$router.push("/pc");
-      }
-    }
-  }
+  methods: {},
 };
 </script>
 
 <style lang="less">
 // less外部文件的使用
-@import "./assets/font/DotPixelFont/DottedSongtiSquareRegular.less";
+@import "../static/font/DotPixelFont/DottedSongtiSquareRegular.less";
 #app {
   font-family: "DottedSongtiSquareRegular";
   /* 清除浮动(兼容) */
