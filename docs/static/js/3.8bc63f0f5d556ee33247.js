@@ -1,0 +1,2 @@
+webpackJsonp([3],{GtvG:function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var s={render:function(){var t=this.$createElement,e=this._self._c||t;return e("div",{staticClass:"entry"},[e("div",{staticClass:"body"},[e("van-empty",{attrs:{image:"network",description:" 抱歉，页面找不到了，请检查网络是否连接正常"}})],1)])},staticRenderFns:[]};var a=n("VU/8")(null,s,!1,function(t){n("ZsqN")},"data-v-ec574bb8",null);e.default=a.exports},ZsqN:function(t,e){}});
+//# sourceMappingURL=3.8bc63f0f5d556ee33247.js.map

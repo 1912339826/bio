@@ -20,7 +20,7 @@ module.exports = {
     proxyTable: {},
 
     // Various Dev Server settings
-    host: localhost, // can be overwritten by process.env.HOST
+    host: 'localhost', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: true,
     errorOverlay: true,
@@ -49,7 +49,7 @@ module.exports = {
     index: path.resolve(__dirname, '../docs/index.html'),
 
     // Paths
-     // 此处更换了初始dist的名字
+    // 此处更换了初始dist的名字
     assetsRoot: path.resolve(__dirname, '../docs'),
     assetsSubDirectory: 'static',
     assetsPublicPath: './',
@@ -58,7 +58,7 @@ module.exports = {
      * Source Maps
      */
 
-    productionSourceMap: true,
+    productionSourceMap: false,
     // https://webpack.js.org/configuration/devtool/#production
     devtool: '#source-map',
 

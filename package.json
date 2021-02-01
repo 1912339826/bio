@@ -11,6 +11,9 @@
   },
   "dependencies": {
     "-": "0.0.1",
+    "@jiaminghi/data-view": "^2.10.0",
+    "animate.css": "^4.1.1",
+    "echarts": "^4.9.0",
     "element-ui": "^2.14.1",
     "normalize.css": "^8.0.1",
     "save": "^2.4.0",

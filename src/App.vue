@@ -7,13 +7,19 @@
 <script>
 export default {
   name: "App",
-  components: {},
-  data() {
-    return {};
+  components: {
   },
-  created() {},
-  mounted() {},
-  methods: {},
+  data() {
+    return {
+    };
+  },
+  created() {
+  },
+  mounted() {
+  },
+  methods: {
+    
+  },
 };
 </script>
 
@@ -21,6 +27,7 @@ export default {
 // less外部文件的使用
 @import "../static/font/DotPixelFont/DottedSongtiSquareRegular.less";
 #app {
+  overflow-x: hidden;
   font-family: "DottedSongtiSquareRegular";
   /* 清除浮动(兼容) */
   /* <br class="clear"> */
@@ -30,6 +37,12 @@ export default {
     font-size: 0px;
     clear: both;
     overflow: hidden;
+  }
+
+  .el-progress.el-progress--line{
+    .el-progress__text{
+      font-size: 1rem !important;
+    }
   }
 }
 </style>
