@@ -1,6 +1,7 @@
 <template>
   <div id="home">
-    <div class="sidebar">
+    <Signature/>
+    <!-- <div class="sidebar">
       <div class="head">
         <img :src="headPortrait.snipaste.url" alt="" />
         <p>啦啦啦啦</p>
@@ -28,17 +29,20 @@
       >
         <router-view></router-view>
       </transition>
-    </div>
+    </div> -->
     <!-- appear-active-class="animate__animated animate__backInLeft" -->
     <!-- enter-active-class="animate__animated animate__backInLeft" -->
   </div>
 </template>
 
 <script>
-import headPortrait from "./headPortrait.json";
+// import headPortrait from "./headPortrait.json";
+import Signature from '../../components/Signature'
 export default {
   name: "home",
-  components: {},
+  components: {
+    Signature
+  },
   props: {},
   data() {
     return {
@@ -53,7 +57,7 @@ export default {
   created() {
     console.log(this.$route);
 
-    this.headPortrait = headPortrait;
+    // this.headPortrait = headPortrait;
   },
   mounted() {},
   activated() {},
