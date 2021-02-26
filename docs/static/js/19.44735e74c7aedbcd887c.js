@@ -1,2 +1,0 @@
-webpackJsonp([19],{n8Ed:function(e,t,s){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n={render:function(){var e=this.$createElement,t=this._self._c||e;return t("div",{staticClass:"list_system"},[t("router-view")],1)},staticRenderFns:[]},l=s("VU/8")({name:"list_system"},n,!1,null,null,null);t.default=l.exports}});
-//# sourceMappingURL=19.44735e74c7aedbcd887c.js.map

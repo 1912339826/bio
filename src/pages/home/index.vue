@@ -1,47 +1,19 @@
 <template>
   <div id="home">
-    <Signature/>
-    <!-- <div class="sidebar">
-      <div class="head">
-        <img :src="headPortrait.snipaste.url" alt="" />
-        <p>啦啦啦啦</p>
-      </div>
-      <div class="lists">
-        <div
-          :class="'list'"
-          @click="rou(item.url, index)"
-          v-for="(item, index) in list"
-          :key="index"
-        >
-          <div class="swimming1" :id="item.active">
-            <div class="swimming2">
-              {{ item.name }}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="right">
-      <transition
-        name="fade"
-        appearmmm
-        enter-active-class="animate__animated animate__fadeIn"
-      >
-        <router-view></router-view>
-      </transition>
-    </div> -->
-    <!-- appear-active-class="animate__animated animate__backInLeft" -->
-    <!-- enter-active-class="animate__animated animate__backInLeft" -->
+    <SignatureTwo/>
   </div>
 </template>
 
 <script>
-// import headPortrait from "./headPortrait.json";
-import Signature from '../../components/Signature'
+import SignatureOne from "../../components/Signature/SignatureOne";
+import SignatureDome from "../../components/Signature/SignatureDome";
+import SignatureTwo from "../../components/Signature/SignatureTwo";
 export default {
   name: "home",
   components: {
-    Signature
+    SignatureOne,
+    SignatureDome,
+    SignatureTwo
   },
   props: {},
   data() {
@@ -59,7 +31,14 @@ export default {
 
     // this.headPortrait = headPortrait;
   },
-  mounted() {},
+  mounted() {
+    var db = openDatabase("mydb", "1.0", "Test DB", 2 * 1024 * 1024);
+    db.transaction(function (tx) {
+      tx.executeSql("CREATE TABLE IF NOT EXISTS LOGS (id unique, log)");
+      tx.executeSql('INSERT INTO LOGS (id, log) VALUES (1, "菜鸟教程")');
+      tx.executeSql('INSERT INTO LOGS (id, log) VALUES (2, "www.runoob.com")');
+    });
+  },
   activated() {},
   update() {},
   methods: {
