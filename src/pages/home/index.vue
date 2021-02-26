@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <SignatureTwo/>
+    <SignatureTwo />
   </div>
 </template>
 
@@ -13,44 +13,17 @@ export default {
   components: {
     SignatureOne,
     SignatureDome,
-    SignatureTwo
+    SignatureTwo,
   },
   props: {},
   data() {
-    return {
-      headPortrait: {},
-      loading: true,
-      list: [
-        { url: "childrens_one", active: "", name: "1" },
-        { url: "childrens_two", active: "", name: "2" },
-      ],
-    };
+    return {};
   },
-  created() {
-    console.log(this.$route);
-
-    // this.headPortrait = headPortrait;
-  },
-  mounted() {
-    var db = openDatabase("mydb", "1.0", "Test DB", 2 * 1024 * 1024);
-    db.transaction(function (tx) {
-      tx.executeSql("CREATE TABLE IF NOT EXISTS LOGS (id unique, log)");
-      tx.executeSql('INSERT INTO LOGS (id, log) VALUES (1, "菜鸟教程")');
-      tx.executeSql('INSERT INTO LOGS (id, log) VALUES (2, "www.runoob.com")');
-    });
-  },
+  created() {},
+  mounted() {},
   activated() {},
   update() {},
-  methods: {
-    rou(url, index) {
-      for (let index = 0; index < this.list.length; index++) {
-        let element = this.list[index];
-        element.active = "";
-      }
-      this.list[index].active = "active";
-      this.$router.push(url);
-    },
-  },
+  methods: {},
   filters: {},
   computed: {},
   watch: {},
@@ -60,87 +33,10 @@ export default {
 <style lang="less" scoped>
 #home {
   display: flex;
-  .sidebar {
-    font-size: 0.2rem;
-    height: 100vh;
-    width: 8vw;
-    background-color: rgb(231, 231, 231);
-    border-top-right-radius: 3vw;
-    -moz-box-shadow: 1px 0px 11px #333333;
-    -webkit-box-shadow: 1px 0px 11px #333333;
-    box-shadow: 1px 0px 11px #333333;
-    .head {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      height: 10vw;
-      img {
-        height: 5vw;
-        width: 5vw;
-      }
-      p {
-        font-size: 0.05rem;
-      }
-    }
-  }
-
-  #right {
-    padding-left: 2vw;
-  }
-  .lists {
-    margin-top: 3vw;
-    padding-left: 1vw;
-    width: 100%;
-    .list {
-      font-size: 0.1rem;
-      width: 4vw;
-      text-align: center;
-      color: #0a090994;
-      margin-bottom: 2vw;
-      .swimming1 {
-        position: relative;
-        width: 4vw;
-        height: 4vw;
-        padding: 1vw;
-        margin: 0 auto;
-        background: #fff;
-        border-radius: 50%;
-        box-shadow: 8px 8px 70px -20px #0c84e7a2 inset;
-        .swimming2 {
-          font-size: 0.1rem;
-          text-align: center;
-          position: absolute;
-          width: 3vw;
-          height: 3vw;
-          line-height: 3vw;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          margin: auto;
-          background: #fff;
-          border-radius: 50%;
-          box-shadow: 4px 4px 35px -6px #0c84e7a2;
-        }
-        &:hover {
-          box-shadow: 4px 4px 35px -6px #0c84e7 inset;
-          .swimming2 {
-            box-shadow: 4px 4px 35px -6px #0c84e7;
-          }
-        }
-      }
-    }
-
-    #active {
-      // -moz-box-shadow: 2px 2px 20px -15px chartreuse;
-      // -webkit-box-shadow: 2px 2px 20px -15px chartreuse;
-      box-shadow: 4px 4px 35px -6px #0c84e775 inset;
-      .swimming2 {
-        box-shadow: 4px 4px 35px -6px #0c84e775;
-        background-color: #0b6fc00e;
-      }
-    }
-  }
+  transform: rotate(90deg);
+  -ms-transform: rotate(90deg); /* IE 9 */
+  -moz-transform: rotate(90deg); /* Firefox */
+  -webkit-transform: rotate(90deg); /* Safari 和 Chrome */
+  -o-transform: rotate(90deg); /* Opera */
 }
 </style>
