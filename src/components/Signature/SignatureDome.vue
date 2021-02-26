@@ -21,11 +21,19 @@ export default {
   props: {},
   data() {
     return {
-      fon: new Function()
+      fon: new Function(),
     };
   },
   created() {},
   mounted() {
+    // function orientationChange() {
+    //   this.lineCanvas(
+    //     document.querySelector("#canvas_box").clientWidth,
+    //     document.querySelector("#canvas_box").clientHeight
+    //   );
+    // }
+
+    // window.addEventListener("orientationchange", orientationChange);
     this.lineCanvas(
       document.querySelector("#canvas_box").clientWidth,
       document.querySelector("#canvas_box").clientHeight
@@ -148,7 +156,7 @@ export default {
       ) {
         // Toast("请签字!");
       } else {
-          console.log(e)
+        console.log(e);
         // this.$store.dispatch("SET_FINALSCORE", {
         //   name: "signatureUrl",
         //   value: e,
@@ -157,8 +165,8 @@ export default {
       }
     },
     cancel() {
-        console.log("取消")
-    //   this.$root.Bus.$emit("Signature", { key: "cancel" });
+      console.log("取消");
+      //   this.$root.Bus.$emit("Signature", { key: "cancel" });
     },
   },
   filters: {},
