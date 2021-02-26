@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <SignatureTwo />
+    <SignatureDome />
   </div>
 </template>
 
@@ -20,7 +20,46 @@ export default {
     return {};
   },
   created() {},
-  mounted() {},
+  mounted() {
+    function orientationChange() {
+      switch (window.orientation) {
+        case 0:
+          alert(
+            "肖像模式 0,screen-width: " +
+              screen.width +
+              "; screen-height:" +
+              screen.height
+          );
+          break;
+        case -90:
+          alert(
+            "左旋 -90,screen-width: " +
+              screen.width +
+              "; screen-height:" +
+              screen.height
+          );
+          break;
+        case 90:
+          alert(
+            "右旋 90,screen-width: " +
+              screen.width +
+              "; screen-height:" +
+              screen.height
+          );
+          break;
+        case 180:
+          alert(
+            "风景模式 180,screen-width: " +
+              screen.width +
+              "; screen-height:" +
+              screen.height
+          );
+          break;
+      }
+    }
+
+    window.addEventListener("orientationchange", orientationChange);
+  },
   activated() {},
   update() {},
   methods: {},
@@ -33,10 +72,10 @@ export default {
 <style lang="less" scoped>
 #home {
   display: flex;
-  transform: rotate(90deg);
-  -ms-transform: rotate(90deg); /* IE 9 */
-  -moz-transform: rotate(90deg); /* Firefox */
-  -webkit-transform: rotate(90deg); /* Safari 和 Chrome */
-  -o-transform: rotate(90deg); /* Opera */
+  // transform: rotate(90deg);
+  // -ms-transform: rotate(90deg); /* IE 9 */
+  // -moz-transform: rotate(90deg); /* Firefox */
+  // -webkit-transform: rotate(90deg); /* Safari 和 Chrome */
+  // -o-transform: rotate(90deg); /* Opera */
 }
 </style>
