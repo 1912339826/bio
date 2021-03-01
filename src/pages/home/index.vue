@@ -1,29 +1,21 @@
 <template>
   <div id="home">
-    <SignatureDome />
+    <el-input placeholder="请输入内容" v-model="input1">
+      <template slot="prepend"><img src="http://n.sinaimg.cn/photo/transform/700/w1000h500/20210113/bc3a-khstaxr6482027.jpg" alt="" style="width:20px;height:20px;"></template>
+    </el-input>
   </div>
 </template>
 
 <script>
-import SignatureOne from "../../components/Signature/SignatureOne";
-import SignatureDome from "../../components/Signature/SignatureDome";
-import SignatureTwo from "../../components/Signature/SignatureTwo";
 export default {
   name: "home",
-  components: {
-    SignatureOne,
-    SignatureDome,
-    SignatureTwo,
-  },
+  components: {},
   props: {},
   data() {
     return {};
   },
   created() {},
-  mounted() {
-    var  achievement = "12132321" || ""
-    console.log(achievement)
-  },
+  mounted() {},
   activated() {},
   update() {},
   methods: {},
@@ -35,11 +27,5 @@ export default {
 
 <style lang="less" scoped>
 #home {
-  display: flex;
-  // transform: rotate(90deg);
-  // -ms-transform: rotate(90deg); /* IE 9 */
-  // -moz-transform: rotate(90deg); /* Firefox */
-  // -webkit-transform: rotate(90deg); /* Safari 和 Chrome */
-  // -o-transform: rotate(90deg); /* Opera */
 }
 </style>
