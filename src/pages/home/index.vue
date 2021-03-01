@@ -21,7 +21,8 @@ export default {
   },
   created() {},
   mounted() {
-
+    var  achievement = "12132321" || ""
+    console.log(achievement)
   },
   activated() {},
   update() {},
