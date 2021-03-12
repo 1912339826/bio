@@ -3,6 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import axios from 'axios'
+Vue.prototype.$axios = axios
+import database from './database' //数据库(自建)
+Vue.prototype.$database = database
+import utils from './utils' //工具库(自建)
+Vue.prototype.$utils = utils
 // normalize.css（css样式初始化）
 import 'normalize.css/normalize.css'
 import TXT from "./assets/js/TXT.js"
@@ -17,7 +23,7 @@ import 'echarts/theme/macarons.js'
 // https://www.bbsmax.com/A/x9J2bn8gJ6/
 import animated from 'animate.css' // npm install animate.css --save安装，在引入
 // https://animate.style/                                                                                                                                                                                                                                                                                                                                                              
-Vue.use(animated)  //https://www.cnblogs.com/fang-1207/p/animationfang.html
+Vue.use(animated) //https://www.cnblogs.com/fang-1207/p/animationfang.html
 Vue.config.productionTip = false
 Vue.use(ElementUI);
 /* eslint-disable no-new */
@@ -26,8 +32,8 @@ new Vue({
   el: '#app',
   router,
   data: {
-     Bus
-     // 在子组件中通过this.$root.Bus.$on(); this.$root.Bus.$emit()来调用
+    Bus
+    // 在子组件中通过this.$root.Bus.$on(); this.$root.Bus.$emit()来调用
   },
   components: {
     App

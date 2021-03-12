@@ -12,10 +12,14 @@ export default {
   components: {},
   props: {},
   data() {
-    return {};
+    return {
+      input1:'11'
+    };
   },
   created() {},
-  mounted() {},
+  mounted() {
+   console.log(this.$utils)
+  },
   activated() {},
   update() {},
   methods: {},
